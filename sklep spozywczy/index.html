@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript">
+        function zegar()
+        {
+        var czas = new Date();
+        godzina = czas.getHours();
+        minuta = czas.getMinutes();
+        sekunda = czas.getSeconds();
+        
+        if (minuta <= 9) {minuta = "0"+minuta;}
+        if (minuta==60) {minuta= "00"}
+        if (sekunda <= 9) {sekunda = "0"+sekunda;}
+        if (sekunda==60) {sekunda= "00"}  
+        document.forms["zegarek"].elements["pokaz"].value = godzina + ":" + minuta + ":" + sekunda;
+        
+        }
+        setInterval("zegar()",1000);
+        </script>
+</head>
+<body>
+   <header>
+    <div class="navbar">
+        <div class="logo"><h1>Panel producenta</h1></div>
+        <ul class="links">
+            <li><a href="dodaj.html">Dodaj produkt <i class="fa-solid fa-plus"></i></a> </li>
+            <li><a href="usun.html">Usuń produkt <i class="fa-solid fa-minus"></i></a> </li>
+            <li><a href="">Stan produktów <i class="fa-solid fa-bars"></i></a> </li>
+            <li><a href="">Statystyki sprzedaży <i class="fa-solid fa-signal"></i></a> </li>
+        </ul>
+        <div class="logout"><a href="">Wyloguj</a></div>
+    </div>
+   </header>
+   <form id="zegarek">
+    <input type="text" value="" name="pokaz" DISABLED />
+    </form>
+</body>
+</html>
